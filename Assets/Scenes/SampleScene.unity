@@ -1203,7 +1203,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1955773901, guid: 8716dc31123356f43a8c426fdeac33b9, type: 3}
       propertyPath: count
-      value: 200
+      value: 43
       objectReference: {fileID: 0}
     - target: {fileID: 1955773901, guid: 8716dc31123356f43a8c426fdeac33b9, type: 3}
       propertyPath: operationType
@@ -1260,6 +1260,10 @@ PrefabInstance:
     - target: {fileID: 7783175506836182909, guid: 8716dc31123356f43a8c426fdeac33b9, type: 3}
       propertyPath: m_Name
       value: Collectable (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8871250941627419400, guid: 8716dc31123356f43a8c426fdeac33b9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8716dc31123356f43a8c426fdeac33b9, type: 3}
@@ -1726,6 +1730,7 @@ MonoBehaviour:
   - {fileID: 178503556}
   - {fileID: 1945234282}
   dollarSymbol: {fileID: 0}
+  subSymbol: {fileID: 0}
 --- !u!65 &826480739
 BoxCollider:
   m_ObjectHideFlags: 0

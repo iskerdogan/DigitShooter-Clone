@@ -25,10 +25,11 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        GameManager.OnStateChanged += OnStateChanged;
+        
         CreateThrowMoney();
         digitController.ChangeTheStructureOfMoney(moneyCount);
         digitParent.transform.position = digitTransforms[0].position;
-        StartCoroutine(ThrowMoney());
     }
 
     private void OnTriggerEnter(Collider other)
@@ -46,16 +47,47 @@ public class Player : MonoBehaviour
                     break;
             }
 
-            digitParent.transform.position = digitTransforms[CountNumberOfDigits(moneyCount) -1].position;
+            var numberOfDigitCount = digitController.CountNumberOfDigits(moneyCount);
+            digitParent.transform.position = digitTransforms[numberOfDigitCount -1].position;
             digitController.ChangeTheStructureOfMoney(moneyCount);
             collectable.gameObject.SetActive(false);
+        }
+
+        var door = other.GetComponent<Door>();
+        if (door != null)
+        {
+            switch (door.doorType)
+            {
+                case DoorType.Range:
+                    switch (door.operationType)
+                    {
+                        case OperationType.Sum:
+                            GameManager.Instance.ThrowMoneyRange += (float)door.count/2;
+                            break;
+                        case OperationType.Sub:
+                            GameManager.Instance.ThrowMoneyRange -= (float)door.count/2;
+                            break;
+                    }
+                    break;
+                case DoorType.FireRate:
+                    switch (door.operationType)
+                    {
+                        case OperationType.Sum:
+                            GameManager.Instance.ThrowMoneyFireRate -= (float)door.count/30;
+                            break;
+                        case OperationType.Sub:
+                            GameManager.Instance.ThrowMoneyFireRate += (float)door.count/30;
+                            break;
+                    }
+                    break;
+            }
+            door.gameObject.SetActive(false);
         }
     }
 
     private IEnumerator ThrowMoney()
     {
-        // burada game start
-        while (true)
+        while (GameManager.Instance.State == GameState.InGame)
         {
             var throwMoney = GetPooledThrowMoney();
             throwMoney.transform.position = throwMoneyPos.position;
@@ -68,16 +100,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    private int CountNumberOfDigits(int money)
-    {
-        var count = 0;
-        while (money > 0)
-        {
-            money /= 10;
-            count++;
-        }
-        return count;
-    }
+    
 
     private void CreateThrowMoney()
     {
@@ -107,5 +130,21 @@ public class Player : MonoBehaviour
 
         poolCount = 0;
         return pooledThrowMoney[poolCount];
+    }
+    
+    private void OnStateChanged(GameState State)
+    {
+        switch (State)
+        {
+            case GameState.Start:
+                break;
+            case GameState.InGame:
+                StartCoroutine(ThrowMoney());
+                break;
+            case GameState.Success:
+                break;
+            case GameState.Fail:
+                break;
+        }
     }
 }
