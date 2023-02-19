@@ -153,6 +153,7 @@ public class Player : MonoBehaviour
             case GameState.Start:
                 break;
             case GameState.InGame:
+                anim.SetTrigger("Run");
                 StartCoroutine(ThrowMoney());
                 break;
             case GameState.Success:
