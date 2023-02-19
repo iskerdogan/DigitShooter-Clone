@@ -12,8 +12,9 @@ public class GameManager : MonoBehaviour
     
     private int playerStartMoney;
     private int throwMoneyCount = 2;
-    private float throwMoneyFireRate = 1.5f;
-    private float throwMoneyRange = 15;
+    private float throwMoneyFireRate = .5f; //1.5f
+    private float throwMoneyRange = 35; //15
+    private int moneyEarnedInLevel;
     
     public int PlayerStartMoney
     {
@@ -50,6 +51,15 @@ public class GameManager : MonoBehaviour
             throwMoneyRange = value;
         }
     }
+    
+    public int MoneyEarnedInLevel
+    {
+        get { return moneyEarnedInLevel; }
+        set
+        {
+            moneyEarnedInLevel = value;
+        }
+    }
 
     private void Awake()
     {
@@ -64,6 +74,7 @@ public class GameManager : MonoBehaviour
         switch (State)
         {
             case GameState.Start:
+                moneyEarnedInLevel = 0;
                 break;
             case GameState.InGame:
                 break;

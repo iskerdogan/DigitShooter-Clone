@@ -83,6 +83,12 @@ public class Player : MonoBehaviour
             }
             door.gameObject.SetActive(false);
         }
+        
+        var finalEnvironment = other.GetComponent<FinalEnvironment>();
+        if (finalEnvironment != null)
+        {
+            GameManager.Instance.ChangeGameState(GameState.Fail);
+        }
     }
 
     private IEnumerator ThrowMoney()
@@ -144,6 +150,7 @@ public class Player : MonoBehaviour
             case GameState.Success:
                 break;
             case GameState.Fail:
+                StopCoroutine(ThrowMoney());
                 break;
         }
     }

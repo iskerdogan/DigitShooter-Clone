@@ -1,0 +1,17 @@
+﻿using System;
+using UnityEngine;
+
+public class FinalMoney : MonoBehaviour
+{
+    public int earning;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        var player = other.GetComponent<Player>();
+        if (player != null)
+        {
+            GameManager.Instance.MoneyEarnedInLevel += earning;
+            this.gameObject.SetActive(false);
+        }
+    }
+}

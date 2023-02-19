@@ -44,6 +44,8 @@ public class Movement : MonoBehaviour
             case GameState.Success:
                 break;
             case GameState.Fail:
+                currenSpeed = 0;
+                currenSpeedX = 0;
                 break;
         }
     }
