@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 8164218489402476183}
   - component: {fileID: 1955773901}
   - component: {fileID: 5003120092194413838}
+  - component: {fileID: 2579037602772389851}
   m_Layer: 0
   m_Name: Collectable
   m_TagString: Untagged
@@ -183,6 +184,7 @@ MonoBehaviour:
   subSymbol: {fileID: 8871250941627419400}
   green: {fileID: 2100000, guid: 071b12a9a4f8041b9a410a5790c21420, type: 2}
   red: {fileID: 2100000, guid: 82df6964244a2444490c918b6e0f543d, type: 2}
+  gray: {fileID: 0}
 --- !u!65 &8164218489402476183
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -226,6 +228,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!95 &2579037602772389851
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7783175506836182909}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ce36f968b3977044ea2ca39e117e07fd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7807883155905982281
 GameObject:
   m_ObjectHideFlags: 0
