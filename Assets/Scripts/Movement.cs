@@ -13,6 +13,7 @@ public class Movement : MonoBehaviour
     private float currenSpeed;
     private float currenSpeedX;
 
+
     private void Start()
     {
         GameManager.OnStateChanged += OnStateChanged;

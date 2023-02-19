@@ -14,6 +14,7 @@ public class DigitController : MonoBehaviour
     [SerializeField] private GameObject subSymbol;
     [SerializeField] private Material green;
     [SerializeField] private Material red;
+    [SerializeField] private Material gray;
 
     private int digit1 = -1;
     private int digit10 = -1;
@@ -120,6 +121,18 @@ public class DigitController : MonoBehaviour
             Digit10List[i].GetComponent<MeshRenderer>().material = green;
             Digit100List[i].GetComponent<MeshRenderer>().material = green;
             Digit1000List[i].GetComponent<MeshRenderer>().material = green;
+        }
+    }
+    
+    public void ChangeColorGray()
+    {
+        dollarSymbol.GetComponent<MeshRenderer>().material = gray;
+        for (int i = 0; i < Digit1List.Count; i++)
+        {
+            Digit1List[i].GetComponent<MeshRenderer>().material = gray;
+            Digit10List[i].GetComponent<MeshRenderer>().material = gray;
+            Digit100List[i].GetComponent<MeshRenderer>().material = gray;
+            Digit1000List[i].GetComponent<MeshRenderer>().material = gray;
         }
     }
 

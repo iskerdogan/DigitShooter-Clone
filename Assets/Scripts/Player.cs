@@ -17,10 +17,12 @@ public class Player : MonoBehaviour
     
     private DigitController digitController;
     private int moneyCount = 0;
-
+    private Animator anim;
+    
     private void Awake()
     {
         digitController = GetComponent<DigitController>();
+        anim = GetComponent<Animator>();
     }
 
     private void Start()
@@ -137,6 +139,12 @@ public class Player : MonoBehaviour
         poolCount = 0;
         return pooledThrowMoney[poolCount];
     }
+
+    private void FailState()
+    {
+        digitController.ChangeColorGray();
+        anim.SetTrigger("Die");
+    }
     
     private void OnStateChanged(GameState State)
     {
@@ -150,6 +158,7 @@ public class Player : MonoBehaviour
             case GameState.Success:
                 break;
             case GameState.Fail:
+                FailState();
                 StopCoroutine(ThrowMoney());
                 break;
         }

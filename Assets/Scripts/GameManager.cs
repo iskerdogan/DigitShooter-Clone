@@ -12,8 +12,8 @@ public class GameManager : MonoBehaviour
     
     private int playerStartMoney;
     private int throwMoneyCount = 2;
-    private float throwMoneyFireRate = .5f; //1.5f
-    private float throwMoneyRange = 35; //15
+    private float throwMoneyFireRate = 1f; //1.5f
+    private float throwMoneyRange = 25; //15
     private int moneyEarnedInLevel;
     
     public int PlayerStartMoney
