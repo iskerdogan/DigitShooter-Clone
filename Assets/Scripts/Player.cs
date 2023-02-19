@@ -83,7 +83,6 @@ public class Player : MonoBehaviour
                     }
                     break;
             }
-            door.gameObject.SetActive(false);
         }
         
         var finalEnvironment = other.GetComponent<FinalEnvironment>();

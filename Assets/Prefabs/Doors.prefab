@@ -288,6 +288,7 @@ MonoBehaviour:
   count: 0
   operationType: 0
   doorType: 0
+  sidedoor: {fileID: 2448261664679010993}
   doorNumberText: {fileID: 2028470318048386699}
   doorTypeText: {fileID: 4729731684104230741}
   green: {fileID: 2100000, guid: 02002feb28a234b2cb4a7d74a3da1677, type: 2}
@@ -770,7 +771,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.2567693, y: 0.313, z: -0.005206649}
   m_LocalScale: {x: 1.073, y: 0.6, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2841384820420691086}
   - {fileID: 1178877996897802177}
@@ -855,6 +856,7 @@ MonoBehaviour:
   count: 0
   operationType: 0
   doorType: 0
+  sidedoor: {fileID: 9076074500857268679}
   doorNumberText: {fileID: 6115420858348175487}
   doorTypeText: {fileID: 2669961736350840690}
   green: {fileID: 2100000, guid: 02002feb28a234b2cb4a7d74a3da1677, type: 2}
